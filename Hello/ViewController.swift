@@ -42,6 +42,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.lblHello.text = "Hi"
+        print("kookoko")
     }
 
     override func didReceiveMemoryWarning() {
