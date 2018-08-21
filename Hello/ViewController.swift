@@ -43,6 +43,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.lblHello.text = "Hi"
         print("Change")
+        
+        var a = 10
+        a = a + 1
+        print(a)
     }
 
     override func didReceiveMemoryWarning() {
