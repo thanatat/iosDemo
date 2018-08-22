@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class TableViewController: UITableViewController {
     
@@ -26,14 +27,24 @@ class TableViewController: UITableViewController {
                         "Test motion detectors",
                         "Test smoke alarms"]
 
+    func fetchData(url: String) {
+        Alamofire.request(url).responseString(completionHandler: { (response) in
+            print(response.value ?? "no value")
+        }).responseJSON(completionHandler: { (response) in
+            print(response.value ?? "no value")
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        fetchData(url: "https://jsonplaceholder.typicode.com/todos")
     }
 
     override func didReceiveMemoryWarning() {
