@@ -75,19 +75,19 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell()
+//        let cell = CustomTableViewCell()
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "normalCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "normalCell") as! CustomTableViewCell
 
         switch indexPath.section {
         case 0:
-            cell.textLabel?.text = self.dailyTasks[indexPath.row]
+            cell.lblTasks?.text = self.dailyTasks[indexPath.row]
         case 1:
-            cell.textLabel?.text = self.weeklyTasks[indexPath.row]
+            cell.lblTasks?.text = self.weeklyTasks[indexPath.row]
         case 2:
-            cell.textLabel?.text = self.monthlyTasks[indexPath.row]
+            cell.lblTasks?.text = self.monthlyTasks[indexPath.row]
         default:
-            cell.textLabel?.text = "No Data"
+            cell.lblTasks?.text = "No Data"
         }
         return cell
     }
