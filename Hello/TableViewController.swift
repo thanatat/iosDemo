@@ -94,6 +94,25 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You just selected \(indexPath.row) on section \(indexPath.section)")
+        var message = String()
+        
+        
+        switch indexPath.section {
+        case 0:
+            message = dailyTasks[indexPath.row]
+        case 1:
+            message = weeklyTasks[indexPath.row]
+        case 2:
+            message = monthlyTasks[indexPath.row]
+        default:
+            print("")
+        }
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let destination = storyBoard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
+        destination.message = message
+        self.navigationController?.pushViewController(destination, animated: true)
     }
 
     /*

@@ -14,6 +14,7 @@
 		CB3ECD43212A785000A2D3BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB3ECD41212A785000A2D3BF /* LaunchScreen.storyboard */; };
 		CBC7E4FA212BCABF0084F291 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7E4F9212BCABF0084F291 /* TableViewController.swift */; };
 		CBC7E4FC212C04430084F291 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7E4FB212C04430084F291 /* CustomTableViewCell.swift */; };
+		CBC7E500212D1EA00084F291 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7E4FF212D1EA00084F291 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CB3ECD44212A785000A2D3BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBC7E4F9212BCABF0084F291 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		CBC7E4FB212C04430084F291 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		CBC7E4FF212D1EA00084F291 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				CB3ECD3A212A784E00A2D3BF /* ViewController.swift */,
 				CBC7E4F9212BCABF0084F291 /* TableViewController.swift */,
 				CBC7E4FB212C04430084F291 /* CustomTableViewCell.swift */,
+				CBC7E4FF212D1EA00084F291 /* DetailViewController.swift */,
 				CB3ECD3C212A784E00A2D3BF /* Main.storyboard */,
 				CB3ECD3F212A785000A2D3BF /* Assets.xcassets */,
 				CB3ECD41212A785000A2D3BF /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 			files = (
 				CB3ECD3B212A784E00A2D3BF /* ViewController.swift in Sources */,
 				CBC7E4FA212BCABF0084F291 /* TableViewController.swift in Sources */,
+				CBC7E500212D1EA00084F291 /* DetailViewController.swift in Sources */,
 				CBC7E4FC212C04430084F291 /* CustomTableViewCell.swift in Sources */,
 				CB3ECD39212A784E00A2D3BF /* AppDelegate.swift in Sources */,
 			);
