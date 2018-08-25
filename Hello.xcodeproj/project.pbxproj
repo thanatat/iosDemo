@@ -13,6 +13,7 @@
 		CB3ECD3E212A784E00A2D3BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB3ECD3C212A784E00A2D3BF /* Main.storyboard */; };
 		CB3ECD40212A785000A2D3BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3ECD3F212A785000A2D3BF /* Assets.xcassets */; };
 		CB3ECD43212A785000A2D3BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB3ECD41212A785000A2D3BF /* LaunchScreen.storyboard */; };
+		CB9CF620213111720082405C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9CF61F213111720082405C /* Product.swift */; };
 		CBC7E4FA212BCABF0084F291 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7E4F9212BCABF0084F291 /* TableViewController.swift */; };
 		CBC7E4FC212C04430084F291 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7E4FB212C04430084F291 /* CustomTableViewCell.swift */; };
 		CBC7E500212D1EA00084F291 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7E4FF212D1EA00084F291 /* DetailViewController.swift */; };
@@ -29,6 +30,7 @@
 		CB3ECD3F212A785000A2D3BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB3ECD42212A785000A2D3BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB3ECD44212A785000A2D3BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB9CF61F213111720082405C /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		CBC7E4F9212BCABF0084F291 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		CBC7E4FB212C04430084F291 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		CBC7E4FF212D1EA00084F291 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				CBC7E4F9212BCABF0084F291 /* TableViewController.swift */,
 				CBC7E4FB212C04430084F291 /* CustomTableViewCell.swift */,
 				CBC7E4FF212D1EA00084F291 /* DetailViewController.swift */,
+				CB9CF61F213111720082405C /* Product.swift */,
 				CB3ECD3C212A784E00A2D3BF /* Main.storyboard */,
 				CB3ECD3F212A785000A2D3BF /* Assets.xcassets */,
 				CB3ECD41212A785000A2D3BF /* LaunchScreen.storyboard */,
@@ -214,6 +217,7 @@
 				CBC7E500212D1EA00084F291 /* DetailViewController.swift in Sources */,
 				CBC7E4FC212C04430084F291 /* CustomTableViewCell.swift in Sources */,
 				CB3ECD39212A784E00A2D3BF /* AppDelegate.swift in Sources */,
+				CB9CF620213111720082405C /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +372,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = timlake.Hello;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -387,7 +391,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = timlake.Hello;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

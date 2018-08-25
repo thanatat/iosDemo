@@ -11,7 +11,9 @@ import Alamofire
 
 class TableViewController: UITableViewController {
     
-    let dailyTasks = ["Check all windows",
+    @IBOutlet weak var tblTask: UITableView!
+    
+    let dailyTasks = ["Check all windows \n other string \n some",
                       "Check all doors",
                       "Is the boiler fueled?",
                       "Check the mailbox",
@@ -26,25 +28,39 @@ class TableViewController: UITableViewController {
     let monthlyTasks = ["Test security alarm",
                         "Test motion detectors",
                         "Test smoke alarms"]
+    var products: [Product] = []
 
     func fetchData(url: String) {
         Alamofire.request(url).responseString(completionHandler: { (response) in
-            print(response.value ?? "no value")
+            if response.value?.isEmpty == false {
+                print("Show data")
+            } else {
+                print("No data")
+            }
         }).responseJSON(completionHandler: { (response) in
-            print(response.value ?? "no value")
+            let decoder = JSONDecoder()
+            do {
+                self.products = try decoder.decode([Product].self, from: response.data!)
+                self.tblTask.reloadData()
+//                print(self.products[0].productName)
+//                print(self.products[0].comments[0].message)
+            } catch {
+                print("Error: Can't decode json data")
+            }
         })
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        self.tblTask.estimatedRowHeight = 43
+        self.tblTask.rowHeight = UITableViewAutomaticDimension
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        fetchData(url: "https://jsonplaceholder.typicode.com/todos")
+        fetchData(url: "http://localhost:3000/products")
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,10 +78,12 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Daily Tasks"
+            return "Products"
         case 1:
-            return "Weekly Tasks"
+            return "Daily Tasks"
         case 2:
+            return "Weekly Tasks"
+        case 3:
             return "Monthly Tasks"
         default:
             return nil
@@ -75,11 +93,13 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return self.dailyTasks.count
+            return self.products.count
         case 1:
             return self.weeklyTasks.count
         case 2:
             return self.monthlyTasks.count
+        case 3:
+            return self.dailyTasks.count
         default:
             return 0
         }
@@ -92,10 +112,12 @@ class TableViewController: UITableViewController {
 
         switch indexPath.section {
         case 0:
-            cell.lblTasks?.text = self.dailyTasks[indexPath.row]
+            cell.lblTasks?.text = self.products[indexPath.row].productName
         case 1:
-            cell.lblTasks?.text = self.weeklyTasks[indexPath.row]
+            cell.lblTasks?.text = self.dailyTasks[indexPath.row]
         case 2:
+            cell.lblTasks?.text = self.weeklyTasks[indexPath.row]
+        case 3:
             cell.lblTasks?.text = self.monthlyTasks[indexPath.row]
         default:
             cell.lblTasks?.text = "No Data"
@@ -110,10 +132,12 @@ class TableViewController: UITableViewController {
         
         switch indexPath.section {
         case 0:
-            message = dailyTasks[indexPath.row]
+            message = products[indexPath.row].productName
         case 1:
-            message = weeklyTasks[indexPath.row]
+            message = dailyTasks[indexPath.row]
         case 2:
+            message = weeklyTasks[indexPath.row]
+        case 3:
             message = monthlyTasks[indexPath.row]
         default:
             print("")
