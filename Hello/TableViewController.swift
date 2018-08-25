@@ -11,7 +11,20 @@ import Alamofire
 
 class TableViewController: UITableViewController {
     
+    var editState = false
     @IBOutlet weak var tblTask: UITableView!
+    @IBAction func btnEdit(_ sender: UIBarButtonItem) {
+        if editState == false {
+            self.tblTask.isEditing = true
+            self.tblTask.setEditing(true, animated: true)
+            editState = true
+        } else {
+            self.tblTask.isEditing = false
+            editState = false
+        }
+    }
+    
+   
     
     let dailyTasks = ["Check all windows \n other string \n some",
                       "Check all doors",
@@ -29,6 +42,8 @@ class TableViewController: UITableViewController {
                         "Test motion detectors",
                         "Test smoke alarms"]
     var products: [Product] = []
+    
+    static let SERVICEURL = "http://localhost:3000/products"
 
     func fetchData(url: String) {
         Alamofire.request(url).responseString(completionHandler: { (response) in
@@ -52,7 +67,6 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.tblTask.estimatedRowHeight = 43
         self.tblTask.rowHeight = UITableViewAutomaticDimension
         
@@ -60,7 +74,7 @@ class TableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        fetchData(url: "http://localhost:3000/products")
+        fetchData(url: TableViewController.SERVICEURL)
     }
 
     override func didReceiveMemoryWarning() {
@@ -168,17 +182,36 @@ class TableViewController: UITableViewController {
     }
     */
 
-    /*
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 0 {
+            return true
+        } else {
+            return false
+        }
+        
+    }
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            print("indexrow: \(indexPath.row)")
+            self.removeData(row: products[indexPath.row].id)
+            self.products.remove(at: indexPath.row)
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
+    func removeData(row: Int) {
+        print("row: \(row)")
+        Alamofire.request("\(TableViewController.SERVICEURL)/\(row)", method: .delete)
+        
+    }
+    
 
     /*
     // Override to support rearranging the table view.

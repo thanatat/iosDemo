@@ -9,6 +9,7 @@
 import Foundation
 
 struct Product: Decodable {
+    let id: Int
     let productCode: String
     let productName: String
     let price: String

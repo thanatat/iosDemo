@@ -89,7 +89,7 @@
             </objects>
             <point key="canvasLocation" x="1804" y="-572.56371814092961"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Data-->
         <scene sceneID="mud-jN-DIn">
             <objects>
                 <tableViewController id="zac-0L-v5G" customClass="TableViewController" customModule="Hello" customModuleProvider="target" sceneMemberID="viewController">
@@ -129,6 +129,13 @@
                             <outlet property="delegate" destination="zac-0L-v5G" id="z5T-qH-MGQ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Data" id="gE4-WX-cko">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="tjH-gi-ZhF">
+                            <connections>
+                                <action selector="btnEdit:" destination="zac-0L-v5G" id="Oaq-ch-7sc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tblTask" destination="eDf-mM-kHl" id="iga-C0-j23"/>
                         <segue destination="uCd-FM-Ec4" kind="show" id="dkM-9L-bHK"/>
